@@ -1,10 +1,15 @@
 import './App.css';
-import { Box, Container, Stack, width } from '@mui/system';
-import { Divider, Paper, Typography } from '@mui/material';
+import { Box, Stack, } from '@mui/system';
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Paper, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import DraftsIcon from '@mui/icons-material/Drafts';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Timeline from '@mui/lab/Timeline';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import TimelineOppositeContent, {
   timelineOppositeContentClasses,
 } from '@mui/lab/TimelineOppositeContent';
@@ -18,20 +23,20 @@ function App() {
     <Typography variant="h4" sx={{height:'5vh',width:'100hw', textAlign:'center'}}>
      Jerom Pulikottil
     </Typography>   
-    <Typography variant="h5" sx={{marginTop:'5%', height:'5vh',width:'100hw', textAlign:'center'}}>
-     Aspiring Software Engineer
+    <Typography variant="h6" sx={{marginTop:'5%', height:'5vh',width:'100hw', textAlign:'center'}}>
+     Software Engineer | Tech Enthusiast
     </Typography>
     <Typography variant="h5" sx={{marginTop:'15%', height:'5vh',width:'100hw', textAlign:'center'}}>
      About Me
      <Divider></Divider>
     </Typography>
     <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'15%',marginRight:'15%',height:'40vh'}}>
-    <img src="https://picsum.photos/200/300" width={'100%'} height={'85%'} ></img>
+    <img src={require('./photo.jpg')} height='85%' width='100%'  ></img> 
     <Stack sx={{marginTop:'4%'}} justifyContent={'space-around'} direction={'row'} >
-    <GitHubIcon></GitHubIcon>
-    <DraftsIcon></DraftsIcon>
-    <LinkedInIcon></LinkedInIcon>
-    </Stack>
+    <GitHubIcon onClick={event =>  window.location.href='https://github.com/jeromthomson'}></GitHubIcon> 
+    <DraftsIcon onClick={event =>  window.location.href='mailto:jtpulikotttil@mun.ca'}></DraftsIcon>
+    <LinkedInIcon onClick={event =>  window.location.href='https://www.linkedin.com/in/jerom-pulikottil/'}></LinkedInIcon>
+    </Stack>   
     </Paper>
     <Divider></Divider>
     <Paper  elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',flex:'auto'}}>
@@ -74,6 +79,9 @@ function App() {
             Beaufort Solutions
           </Typography>
           <Typography>
+            Software Engineer
+          </Typography>
+          <Typography>
             St. John's, NL
           </Typography>
           <Typography>●	Engineered automated Problem Order Reports, using Azure timer functions and ASP.NET decreasing error detection time by 600% i.e., from 7 days to 30 minutes</Typography>
@@ -97,6 +105,9 @@ function App() {
            Hatcher Commons 
           </Typography>
           <Typography>
+            Desk Staff
+          </Typography>
+          <Typography>
             St. John's, NL
           </Typography>
           <Typography>●	Supervised the Hatcher Commons Lab and helped students with basic general and technical difficulties such as: Microsoft Office help, printing issues, campus card reloads and campus card reprints</Typography>
@@ -109,36 +120,87 @@ function App() {
      Projects
      <Divider></Divider>
     </Typography>
-    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',height:'40vh'}}>
-    <img src="https://picsum.photos/200/300" width={'100%'} height={'85%'} ></img>
-    <Stack sx={{marginTop:'4%'}} justifyContent={'space-around'} direction={'row'} >
-    <Typography variant="body1" >
-           MUNTour 
-    </Typography>
+    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',minheight:'40vh'}}>
+    <Stack  spacing={2}>
+    <img src={require('./MUNTour.jpg')} width={'100%'} height={'85%'} ></img>  
+    <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+        <Typography>MUNTour</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          ●	Led a team of 5 developers to build an interactive web application using React for a class project. The project aimed to create an application capable of booking Stays, Flights, and Car Rentals. 
+          </Typography>
+          <Typography>
+          ●	Successfully integrated our frontend application with our algorithms team using Firebase, allowing users to browse through a rich catalog of Stays, Flights, and Car Rentals with varying prices across various locations.
+          </Typography>
+          <Typography>
+          ●	Integrated our payments team's solution using Stripe to accept and process customer credit card data in a sandbox environment to avoid unnecessary charges.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Stack>
     </Paper>
-    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',height:'40vh'}}>
-    <img src="https://picsum.photos/200/300" width={'100%'} height={'85%'} ></img>
-    <Stack sx={{marginTop:'4%'}} justifyContent={'space-around'} direction={'row'} >
-    <Typography variant="body1" >
-           Printer Queue
-    </Typography>
+    
+    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',minheight:'40vh'}}>
+    <Stack spacing={2} >
+    <img src={require('./PrinterQueue.jpg')} width={'100%'} height={'85%'} ></img>
+    <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+        <Typography>Printer Queue</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          ●	A simple project made using Intel Altera Cyclone V DE10 FPGA board to demonstrate a printer queue. Employed double dabble algorithm to convert the switch inputs to human readable outputs and used the buttons inputs to move to the next stage of the printing job.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Stack>
     </Paper>
-    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',height:'40vh'}}>
-    <img src="https://picsum.photos/200/300" width={'100%'} height={'85%'} ></img>
-    <Stack sx={{marginTop:'4%'}} justifyContent={'space-around'} direction={'row'} >
-    <Typography variant="body1" >
-           SimplyFyle
-    </Typography>
+    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',minheight:'40vh'}}>
+    <Stack spacing={2} >
+    <img src={require('./SimplyFyle.jpg')} width={'100%'} height={'85%'} ></img>
+    <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+        <Typography>SimplyFyle</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          ●	SimplyFyle is a humble GUI made to help students automate their file organization during their academic semesters. Coded in Python using Tkinter. SimplyFyle automatically sorts specific course-related files into their course folders and deliverables subfolders.
+          </Typography>
+        </AccordionDetails>
+        </Accordion>
     </Stack>
     </Paper>
-    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',height:'40vh'}}>
-    <img src="https://picsum.photos/200/300" width={'100%'} height={'85%'} ></img>
-    <Stack sx={{marginTop:'4%'}} justifyContent={'space-around'} direction={'row'} >
-    <Typography variant="body1" >
-           Morse Code translator
-    </Typography>
+    <Paper elevation={15} sx={{marginTop:'5%',marginBottom:'10%',marginLeft:'8%',marginRight:'8%',minheight:'40vh'}}>
+    <Stack spacing={2} >
+    <img src={require('./MorseCode.jpg')} width={'100%'} height={'85%'} ></img>
+    <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+        <Typography>Morse Code Translator</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          ●	A project made using Arduino Uno Rev3 capable of encrypting and decrypting Morse Code using Python and button switches as inputs and a LED display as an output.
+          </Typography>
+        </AccordionDetails>
+        </Accordion>
     </Stack>
     </Paper>
     </Box>
